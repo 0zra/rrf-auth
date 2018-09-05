@@ -8,8 +8,57 @@ import Spinner from "../layout/Spinner";
 import classnames from "classnames";
 
 class ClientDetails extends Component {
+  state = {
+    showBalanceUpdate: false,
+    balanceUpdateAmount: ""
+  };
+
+  onChange = e => this.setState({ [e.target.name]: e.target.value });
+
+  balanceSubmit = e => {
+    e.preventDefault();
+
+    const { client, firestore } = this.props;
+    const { balanceUpdateAmount } = this.state;
+
+    const clientUpdate = {
+      balance: parseFloat(balanceUpdateAmount)
+    };
+
+    firestore.update({ collection: "clients", doc: client.id }, clientUpdate);
+  };
+
   render() {
     const { client } = this.props;
+    const { showBalanceUpdate, balanceUpdateAmount } = this.state;
+
+    let balanceForm = "";
+    if (showBalanceUpdate) {
+      balanceForm = (
+        <form onSubmit={this.balanceSubmit}>
+          <div className="input-group">
+            <input
+              type="text"
+              className="form-control"
+              name="balanceUpdateAmount"
+              placeholder="Add New Balance"
+              value={balanceUpdateAmount}
+              onChange={this.onChange}
+            />
+            <div className="input-group-append">
+              <input
+                type="submit"
+                value="Update"
+                className="btn btn-outline-dark"
+              />
+            </div>
+          </div>
+        </form>
+      );
+    } else {
+      balanceForm = null;
+    }
+
     if (client) {
       return (
         <div>
@@ -51,8 +100,21 @@ class ClientDetails extends Component {
                       })}
                     >
                       ${parseFloat(client.balance).toFixed(2)}
-                    </span>
+                    </span>{" "}
+                    {"  "}
+                    <small>
+                      <a
+                        onClick={() =>
+                          this.setState({
+                            showBalanceUpdate: !this.state.showBalanceUpdate
+                          })
+                        }
+                      >
+                        <i className="fas fa-pencil-alt" />
+                      </a>
+                    </small>
                   </h3>
+                  {balanceForm}
                 </div>
               </div>
 
