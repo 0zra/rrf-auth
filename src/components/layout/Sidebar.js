@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Sidebar = () => {
   return (
-    <Link className="btn btn-success btn-block" to="/clients/add">
+    <Link className="btn btn-success btn-block" to="/client/add">
       <i className="fas fa-plus" /> New
     </Link>
   );
