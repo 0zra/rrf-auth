@@ -11,6 +11,14 @@ class Clients extends Component {
         email: "kevin@gmail.com",
         phone: "555-555-5555",
         balance: "30"
+      },
+      {
+        id: "51654654",
+        firstname: "Jackie",
+        lastname: "Thompson",
+        email: "jt@yahoo.com",
+        phone: "123-321-8888",
+        balance: "1000"
       }
     ];
     if (clients) {
@@ -41,7 +49,7 @@ class Clients extends Component {
                     {client.firstname} {client.lastname}
                   </td>
                   <td>{client.email}</td>
-                  <td>{client.balance}</td>
+                  <td>${parseFloat(client.balance).toFixed(2)}</td>
                   <td>
                     <Link
                       to={`/client/${client.id}`}
