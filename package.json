@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://0zra.github.io/react-redux-firebase/",
   "dependencies": {
+    "classnames": "^2.2.6",
     "firebase": "^5.4.2",
     "gh-pages": "^1.2.0",
     "react": "^16.4.2",
