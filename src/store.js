@@ -8,12 +8,12 @@ import { reduxFirestore, firestoreReducer } from "redux-firestore";
 // @todo
 
 const firebaseConfig = {
-  apiKey: "AIzaSyC8CYISb3zalo-HwQvsjrW6Ww2ETzW-zTU",
-  authDomain: "reactclientpanel-8ecbe.firebaseapp.com",
-  databaseURL: "https://reactclientpanel-8ecbe.firebaseio.com",
-  projectId: "reactclientpanel-8ecbe",
-  storageBucket: "reactclientpanel-8ecbe.appspot.com",
-  messagingSenderId: "634412624539"
+  apiKey: "AIzaSyBp_z3vyiaaKPX9AnoO358Rb9e8tppARsM",
+  authDomain: "rrf-auth.firebaseapp.com",
+  databaseURL: "https://rrf-auth.firebaseio.com",
+  projectId: "rrf-auth",
+  storageBucket: "rrf-auth.appspot.com",
+  messagingSenderId: "888302908221"
 };
 
 // react-redux-firebase config
