@@ -63,7 +63,7 @@ class Login extends React.Component {
                 </div>
                 <input
                   type="submit"
-                  value="Submit"
+                  value="Login"
                   className="btn btn-primary btn-block"
                 />
               </form>
